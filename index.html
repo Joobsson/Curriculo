@@ -132,6 +132,35 @@
         ul { padding-left: 20px; color: var(--text-dark); font-size: 0.9rem; }
         li { margin-bottom: 8px; text-align: justify; }
 
+        /* Estilo do Botão Portfolio */
+        .portfolio-btn-container {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+        }
+
+        .portfolio-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+        }
+
         @media (max-width: 768px) {
             .cv-container { grid-template-columns: 1fr; }
         }
@@ -227,6 +256,10 @@
             <p style="text-align: justify;">
                 Possuo total disponibilidade para horários administrativos (com início às 06h ou 07h), incluindo escalas aos finais de semana. Perfil com foco em comunicação assertiva, organização metódica e facilidade para trabalho em equipe. </p>
         </section>
+
+        <div class="portfolio-btn-container">
+            <a href="portfolio.html" class="portfolio-btn">Portfólio</a>
+        </div>
     </main>
 </div>
 
