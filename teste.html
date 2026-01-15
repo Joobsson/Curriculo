@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Profissional | Jobsson Nascimento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 30px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .cv-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .photo-container {
+            width: 160px;
+            height: 160px;
+            background: #334155;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .svg-icon {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        /* Progresso */
+        .progress-wrapper {
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            background: #e2e8f0;
+            height: 10px;
+            border-radius: 10px;
+        }
+
+        .progress-bar-fill {
+            background: var(--accent);
+            height: 100%;
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        /* Conteúdo Principal */
+        .main-content { padding: 50px; }
+        section { margin-bottom: 40px; }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 5px;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .exp-header { display: flex; justify-content: space-between; font-weight: 700; }
+        .exp-sub { color: var(--accent); display: block; margin-bottom: 8px; font-weight: 600; }
+        
+        ul { padding-left: 20px; color: var(--text-dark); font-size: 0.9rem; }
+        li { margin-bottom: 8px; text-align: justify; }
+
+        @media (max-width: 768px) {
+            .cv-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <aside class="sidebar">
+        <div class="photo-container">
+            <img src="fotocurriculo.jpeg" alt="Foto de Jobsson Nascimento">
+        </div>
+
+        <h1>Jobsson Nascimento</h1>
+        <p style="text-align: center; font-size: 0.8rem; opacity: 0.8;">Brasileiro, Solteiro, 19 anos</p>
+
+        <div style="margin-top: 40px;">
+            <div class="contact-item">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                jobssonnascimento@gmail.com</div>
+            <div class="contact-item">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                (31) 98397-0307</div>
+            <div class="contact-item">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Rua José Ribeiro de Lima 321 - Ouro Branco</div>
+        </div>
+
+        <h2 style="font-size: 0.9rem; text-transform: uppercase; margin-top: 40px; border-bottom: 1px solid #334155; padding-bottom: 10px;">Habilidades</h2>
+        <div style="margin-top: 15px; font-size: 0.85rem; line-height: 1.8;">
+            • Excel Avançado + VBA<br>
+            • Python e C++<br>
+            • Gestão Fiscal (NCM/CEST)<br>
+            • Fluxo de Caixa<br>
+            • Sistemas ERP<br>
+            • Windows e Linux</div>
+    </aside>
+
+    <main class="main-content">
+        <section>
+            <h2 class="section-title">Objetivo</h2>
+            <p style="text-align: justify;">
+                Atuação na área administrativa, utilizando o embasamento acadêmico de Engenharia Mecatrônica para a resolução de problemas complexos. Destaco facilidade com sistemas computacionais, programação e análise de dados. Disponível para contribuir com organização, precisão técnica e eficiência operacional em rotinas de gestão e suporte administrativo. </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>Engenharia Mecatrônica (UFSJ)</span>
+                    <span style="color: var(--text-light)">2024.1 - 2028.2</span>
+                </div>
+                <div class="progress-wrapper">
+                    <div class="progress-label">
+                        <span>Início do 5º Semestre em 2026.1</span>
+                        <span>40% de matérias obrigatórias concluídas</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill"></div></div>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>Técnico em Mineração (ESTEC)</span>
+                    <span style="color: var(--text-light)">2022 - 2024</span>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>Técnico em Mecânica (SENAI)</span>
+                    <span style="color: var(--text-light)">2024 - 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>Auxiliar de Escritório</span>
+                    <span style="color: var(--text-light)">1 ano</span>
+                </div>
+                <span class="exp-sub">Empresa Bruno Batista Santana Pinheiro (Skinão)</span>
+                <ul>
+                    <li>Atuei por um ano como Auxiliar de Escritório na empresa Bruno Batista Santana Pinheiro (Skinão), onde fui responsável pela gestão integral de estoque e cadastramento de itens com foco em conformidade fiscal, realizando a correta classificação de NCM, CEST e demais parâmetros tributários.</li>
+                    <li>Minha experiência abrange a entrada de notas e cupons fiscais, emissão de relatórios Sintegra, além da elaboração de planilhas avançadas de fluxo de caixa e gestão via Excel.</li>
+                    <li>Atuei também em processos licitatórios, desde a prospecção de editais até a venda final, demonstrando versatilidade operacional.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Informações Adicionais</h2>
+            <p style="text-align: justify;">
+                Possuo total disponibilidade para horários administrativos (com início às 06h ou 07h), incluindo escalas aos finais de semana. Perfil com foco em comunicação assertiva, organização metódica e facilidade para trabalho em equipe. </p>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
