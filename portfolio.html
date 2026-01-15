@@ -10,84 +10,176 @@
             --primary: #1e293b;
             --accent: #3b82f6;
             --bg: #f1f5f9;
+            --success: #10b981;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--bg);
             margin: 0;
+            padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             color: var(--primary);
-            text-align: center;
         }
 
         .container {
             background: #fff;
-            padding: 50px;
+            padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 500px;
+            max-width: 700px;
+            width: 100%;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .status-container {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .status-tag {
             display: inline-block;
-            background-color: #fef3c7;
-            color: #92400e;
-            padding: 8px 16px;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 6px 16px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
+        }
+
+        .academic-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+            text-align: left;
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .info-item span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
             margin-bottom: 30px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
         }
 
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--accent);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
+        .stat-card {
+            text-align: center;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 30px;
         }
 
         .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--accent);
+            color: #64748b;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
         }
 
-        .back-btn:hover {
-            text-decoration: underline;
+        .pdf-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: opacity 0.2s;
         }
+
+        .pdf-btn:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="loader"></div>
-    <div class="status-tag">Em desenvolvimento</div>
-    <h1>Portfólio Acadêmico</h1>
-    <p>Em breve, você poderá conferir aqui meus projetos em mecatrônica, pesquisas sobre a Transformada de Fourier e materiais de monitoria.</p>
-    <a href="index.html" class="back-btn">← Voltar para o Currículo</a>
+    <div class="status-container">
+        <div class="status-tag">Discente Ativo</div> [cite: 16]
+        <h1>Histórico Acadêmico</h1>
+        <p>Engenharia Mecatrônica - UFSJ</p> [cite: 1, 15]
+    </div>
+
+    <div class="academic-info">
+        <div class="info-item">
+            <label>Nome Completo</label>
+            <span>Jobsson Luiz do Nascimento Silva</span> [cite: 6]
+        </div>
+        <div class="info-item">
+            <label>Matrícula</label>
+            <span>2024005060</span> [cite: 13]
+        </div>
+        <div class="info-item">
+            <label>Início do Curso</label>
+            <span>2024.1</span> [cite: 24]
+        </div>
+        <div class="info-item">
+            <label>Previsão de Conclusão</label>
+            <span>2028.2</span> [cite: 30]
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-value">7.57</span> 
+            <span class="stat-label">C.R. (MC)</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">1242h</span> [cite: 61]
+            <span class="stat-label">Horas Integralizadas</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">4º</span> [cite: 29]
+            <span class="stat-label">Período Atual</span>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="historico_2024005060.pdf" target="_blank" class="pdf-btn">Visualizar PDF Completo</a>
+        <br>
+        <a href="index.html" class="back-btn">← Voltar para o Currículo</a>
+    </div>
 </div>
 
 </body>
