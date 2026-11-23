@@ -374,52 +374,99 @@
             border-radius: 999px;
         }
 
-        /* Rodapé de Ações */
-        .actions-bar {
+        /* Rodapé de Ações / Portfólios */
+        .actions-wrapper {
             margin-top: 28px;
-            padding-top: 20px;
+            padding-top: 22px;
             border-top: 1px solid var(--border-subtle);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .actions-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: var(--accent);
             color: #ffffff;
             text-decoration: none;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            padding: 11px 20px;
+            text-align: center;
+            padding: 12px 16px;
             border-radius: 9px;
             border: none;
             cursor: pointer;
             transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
         }
 
         .btn-primary:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.32);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline-accent {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px 16px;
+            border-radius: 9px;
+            border: 1px solid #bfdbfe;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-outline-accent:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .pdf-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 4px;
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: #f1f5f9;
             color: var(--text-primary);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            padding: 11px 20px;
+            padding: 10px 18px;
             border-radius: 9px;
             border: 1px solid #cbd5e1;
             cursor: pointer;
@@ -438,12 +485,14 @@
             .main-body {
                 padding: 30px 22px;
             }
-            .actions-bar {
-                flex-direction: column;
-                align-items: stretch;
+            .actions-grid {
+                grid-template-columns: 1fr;
             }
-            .btn-primary, .btn-secondary {
-                justify-content: center;
+            .pdf-bar {
+                justify-content: stretch;
+            }
+            .btn-secondary {
+                width: 100%;
             }
         }
 
@@ -468,7 +517,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .actions-bar {
+            .actions-wrapper {
                 display: none;
             }
         }
@@ -673,11 +722,25 @@
             </p>
         </section>
 
-        <div class="actions-bar">
-            <a href="areas-de-interesse.html" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                Áreas de Interesse Profissional e Acadêmico
-            </a>
-            <button type="button" class="btn-secondary" onclick="window.print()">Salvar / Imprimir PDF</button>
+        <div class="actions-wrapper">
+            <div class="actions-label">Portfólios &amp; Detalhamentos Complementares</div>
+            <div class="actions-grid">
+                <a href="portfolio-dados.html" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Portfólio de Análise de Dados
+                </a>
+                <a href="portfolio-simulacoes-cad.html" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Portfólio de Simulações Numéricas / CAD
+                </a>
+                <a href="detalhamento-pessoal-profissional.html" target="_blank" rel="noopener noreferrer" class="btn-outline-accent">
+                    Detalhamento Pessoal e Profissional
+                </a>
+                <a href="areas-de-interesse.html" target="_blank" rel="noopener noreferrer" class="btn-outline-accent">
+                    Áreas de Interesse Profissional e Acadêmico
+                </a>
+            </div>
+            <div class="pdf-bar">
+                <button type="button" class="btn-secondary" onclick="window.print()">Salvar / Imprimir PDF</button>
+            </div>
         </div>
     </main>
 </div>
