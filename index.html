@@ -4,54 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo Profissional | Jobsson Nascimento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e293b;
-            --accent: #3b82f6;
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
             --text-dark: #1e293b;
             --text-light: #64748b;
             --bg: #f1f5f9;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--bg);
             margin: 0;
-            padding: 30px;
+            padding: 30px 15px;
             color: var(--text-dark);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .cv-container {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: #fff;
+            background: #ffffff;
             display: grid;
-            grid-template-columns: 320px 1fr;
-            border-radius: 20px;
+            grid-template-columns: 310px 1fr;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
 
         /* Sidebar */
         .sidebar {
             background-color: var(--primary);
-            color: white;
-            padding: 40px 30px;
+            color: #f8fafc;
+            padding: 40px 28px;
         }
 
         .photo-container {
-            width: 160px;
-            height: 160px;
-            background: #334155;
+            width: 155px;
+            height: 155px;
+            background: var(--secondary);
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 4px solid var(--accent);
+            border: 4px solid var(--accent-light);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .photo-container img {
@@ -62,107 +70,264 @@
 
         .sidebar h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             text-align: center;
-            margin-bottom: 5px;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .sidebar-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin: 0 0 28px 0;
+            font-weight: 600;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
-            margin-top: 15px;
-            font-size: 0.85rem;
+            margin-top: 14px;
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            word-break: break-word;
         }
 
         .svg-icon {
-            width: 18px;
-            height: 18px;
-            fill: var(--accent);
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-light);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .sidebar-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .skill-group {
+            margin-bottom: 16px;
+        }
+
+        .skill-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-list {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin: 0;
+            padding-left: 16px;
         }
 
         /* Progresso */
         .progress-wrapper {
-            margin-top: 12px;
+            margin-top: 10px;
             width: 100%;
         }
 
         .progress-label {
             display: flex;
             justify-content: space-between;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             margin-bottom: 5px;
             font-weight: 600;
+            color: var(--text-light);
         }
 
         .progress-bar-bg {
-            background: #e2e8f0;
-            height: 10px;
+            background: var(--border);
+            height: 8px;
             border-radius: 10px;
+            overflow: hidden;
         }
 
         .progress-bar-fill {
             background: var(--accent);
             height: 100%;
-            width: 40%;
+            width: 50%;
             border-radius: 10px;
         }
 
         /* Conteúdo Principal */
-        .main-content { padding: 50px; }
-        section { margin-bottom: 40px; }
+        .main-content {
+            padding: 45px 48px;
+        }
+
+        section {
+            margin-bottom: 34px;
+        }
+
         .section-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin: 0 0 18px 0;
             text-transform: uppercase;
-            border-bottom: 2px solid var(--bg);
-            padding-bottom: 5px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        .summary-text {
+            text-align: justify;
+            font-size: 0.92rem;
+            margin: 0;
+            color: #334155;
         }
 
         .experience-item {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
+            position: relative;
         }
 
-        .exp-header { display: flex; justify-content: space-between; font-weight: 700; }
-        .exp-sub { color: var(--accent); display: block; margin-bottom: 8px; font-weight: 600; }
-        
-        ul { padding-left: 20px; color: var(--text-dark); font-size: 0.9rem; }
-        li { margin-bottom: 8px; text-align: justify; }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--primary);
+        }
+
+        .exp-date {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exp-sub {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+
+        .role-progression {
+            border-left: 2px solid var(--border);
+            padding-left: 16px;
+            margin-top: 10px;
+        }
+
+        .role-block {
+            margin-bottom: 16px;
+        }
+
+        .role-title {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul.exp-bullets {
+            padding-left: 18px;
+            margin: 8px 0 0 0;
+            color: #334155;
+            font-size: 0.88rem;
+        }
+
+        ul.exp-bullets li {
+            margin-bottom: 7px;
+            text-align: justify;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .edu-item {
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .edu-sub {
+            font-size: 0.84rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
 
         /* Estilo do Botão Portfolio */
         .portfolio-btn-container {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
         }
 
         .portfolio-btn {
             display: inline-block;
             background-color: var(--accent);
-            color: white;
-            padding: 12px 30px;
+            color: #ffffff;
+            padding: 12px 34px;
             border-radius: 8px;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
+            font-size: 0.88rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
         }
 
         .portfolio-btn:hover {
-            background-color: #2563eb;
+            background-color: #1d4ed8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
         }
 
-        @media (max-width: 768px) {
-            .cv-container { grid-template-columns: 1fr; }
+        @media (max-width: 820px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            .main-content {
+                padding: 32px 24px;
+            }
+            .exp-header, .role-title {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .portfolio-btn-container {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -171,94 +336,176 @@
 <div class="cv-container">
     <aside class="sidebar">
         <div class="photo-container">
-            <img src="fotocurriculo.jpeg" alt="Foto de Jobsson Nascimento">
+            <img src="fotocurrículo.jpeg" alt="Foto de Jobsson Nascimento">
         </div>
 
         <h1>Jobsson Nascimento</h1>
-        <p style="text-align: center; font-size: 0.8rem; opacity: 0.8;">Brasileiro e 19 anos</p>
+        <p class="sidebar-subtitle">Técnico em Mecânica | Graduando em Engenharia Mecatrônica</p>
 
-        <div style="margin-top: 40px;">
+        <div>
             <div class="contact-item">
                 <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                jobssonnascimento@gmail.com</div>
+                <span>jobssonnascimento@gmail.com</span>
+            </div>
             <div class="contact-item">
                 <svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                (31) 98397-0307</div>
+                <span>(31) 98397-0307</span>
+            </div>
             <div class="contact-item">
                 <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Rua José Ribeiro de Lima 321 - Ouro Branco</div>
+                <span>Ouro Branco - MG (Brasileiro, 20 anos)</span>
+            </div>
         </div>
 
-        <h2 style="font-size: 0.9rem; text-transform: uppercase; margin-top: 40px; border-bottom: 1px solid #334155; padding-bottom: 10px;">Habilidades</h2>
-        <div style="margin-top: 15px; font-size: 0.85rem; line-height: 1.8;">
-            • Excel Avançado + VBA<br>
-            • Python e C++<br>
-            • Gestão Fiscal (NCM/CEST)<br>
-            • Fluxo de Caixa<br>
-            • Sistemas ERP<br>
-            • Windows e Linux</div>
+        <h2 class="sidebar-section-title">Competências Técnicas</h2>
+
+        <div class="skill-group">
+            <div class="skill-group-title">Dados, Automação & Web</div>
+            <ul class="skill-list">
+                <li>Excel Avançado, VBA e Solver</li>
+                <li>Power BI, SQL e Power Automate</li>
+                <li>Python e C++</li>
+                <li>Controles Web em HTML/CSS/JS (Desenvolvimento assistido por IA)</li>
+            </ul>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-group-title">Engenharia & Planejamento</div>
+            <ul class="skill-list">
+                <li>Planejamento e Controle (PCM/Inspeções)</li>
+                <li>Elaboração de KPIs e RDO</li>
+                <li>Inspeção END e Adequação NR-13</li>
+                <li>Orçamentação e Controle de Custos</li>
+            </ul>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-group-title">Gestão & Sistemas</div>
+            <ul class="skill-list">
+                <li>Sistemas ERP e Fluxo de Caixa</li>
+                <li>Gestão Fiscal (NCM / CEST / Sintegra)</li>
+                <li>Ambientes Windows e Linux</li>
+            </ul>
+        </div>
     </aside>
 
     <main class="main-content">
         <section>
-            <h2 class="section-title">Objetivo</h2>
-            <p style="text-align: justify;">
-                Atuação na área administrativa, utilizando o embasamento acadêmico de Engenharia Mecatrônica para a resolução de problemas complexos. Destaco facilidade com sistemas computacionais, programação e análise de dados. Disponível para contribuir com organização, precisão técnica e eficiência operacional em rotinas de gestão e suporte administrativo. </p>
-        </section>
-
-        <section>
-            <h2 class="section-title">Formação Acadêmica</h2>
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>Engenharia Mecatrônica (UFSJ)</span>
-                    <span style="color: var(--text-light)">2024.1 - 2028.2</span>
-                </div>
-                <div class="progress-wrapper">
-                    <div class="progress-label">
-                        <span>Início do 5º Semestre em 2026.1</span>
-                        <span>40% de matérias obrigatórias concluídas</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill"></div></div>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>Técnico em Mineração (ESTEC)</span>
-                    <span style="color: var(--text-light)">2022 - 2024</span>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>Técnico em Mecânica (SENAI)</span>
-                    <span style="color: var(--text-light)">2024 - 2026</span>
-                </div>
-            </div>
+            <h2 class="section-title">Resumo Profissional</h2>
+            <p class="summary-text">
+                Técnico em Mecânica (registro CFT/CRT-MG) e graduando em Engenharia Mecatrônica pela UFSJ, com sólida atuação em planejamento operacional, inspeção industrial, análise de dados e automação de processos. Experiência comprovada no desenvolvimento de indicadores de desempenho (KPIs), elaboração de relatórios técnicos e criação de ferramentas de controle em Excel/VBA e interfaces web em HTML com auxílio de Inteligência Artificial. Foco em eficiência operacional, rigor normativo e tomada de decisão orientada por dados.
+            </p>
         </section>
 
         <section>
             <h2 class="section-title">Experiência Profissional</h2>
+            
             <div class="experience-item">
                 <div class="exp-header">
-                    <span>Auxiliar de Escritório</span>
-                    <span style="color: var(--text-light)">1 ano</span>
+                    <span>ISQ Brasil</span>
+                    <span class="exp-date">Mar/2026 – Atual</span>
+                </div>
+                <span class="exp-sub">Ouro Branco, MG | Planejamento, Inspeção e Operações Multidisciplinares</span>
+                
+                <div class="role-progression">
+                    <div class="role-block">
+                        <div class="role-title">
+                            <span>Técnico Mecânico (Efetivo)</span>
+                            <span class="exp-date">Set/2026 – Atual</span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Suporte técnico especializado e gestão de demandas contratuais multidisciplinares, com foco em integridade estrutural, segurança industrial e eficiência operacional.</li>
+                            <li><strong>Inspeção e Conformidade:</strong> Elaboração e análise de relatórios técnicos de Ensaios Não Destrutivos (END) e adequação à norma NR-13 (vasos de pressão e caldeiras), assegurando rigor normativo para clientes industriais.</li>
+                            <li><strong>Sistemas de Controle e IA:</strong> Desenvolvimento de ferramentas internas e painéis de controle operacional em <strong>HTML/CSS/JS</strong> estruturados com auxílio de Inteligência Artificial, agilizando o rastreamento de demandas e a consolidação de informações de campo.</li>
+                        </ul>
+                    </div>
+
+                    <div class="role-block" style="margin-bottom: 0;">
+                        <div class="role-title">
+                            <span>Estagiário de Engenharia | Planejamento de Inspeções e Operações</span>
+                            <span class="exp-date">Mar/2026 – Set/2026</span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li><strong>Planejamento e Controle:</strong> Estruturação de cronogramas quinzenais de inspeções industriais e preenchimento técnico de Relatórios Diários de Obra (RDO).</li>
+                            <li><strong>Análise de Dados e KPIs:</strong> Criação de dashboards e indicadores personalizados em Excel e Power BI para monitoramento de produtividade, redução de ciclos de processamento e suporte à tomada de decisão gerencial.</li>
+                            <li><strong>Gestão de Custos e Automação:</strong> Levantamento de escopo e orçamentação operacional, aliados à automação de rotinas administrativas via VBA e fluxos automatizados para mitigação de falhas manuais.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item" style="margin-bottom: 0;">
+                <div class="exp-header">
+                    <span>Auxiliar de Escritório e Gestão Administrativa</span>
+                    <span class="exp-date">1 ano</span>
                 </div>
                 <span class="exp-sub">Empresa Bruno Batista Santana Pinheiro (Skinão)</span>
-                <ul>
-                    <li>Atuei por um ano como Auxiliar de Escritório na empresa Bruno Batista Santana Pinheiro (Skinão), onde fui responsável pela gestão integral de estoque e cadastramento de itens com foco em conformidade fiscal, realizando a correta classificação de NCM, CEST e demais parâmetros tributários.</li>
-                    <li>Minha experiência abrange a entrada de notas e cupons fiscais, emissão de relatórios Sintegra, além da elaboração de planilhas avançadas de fluxo de caixa e gestão via Excel.</li>
-                    <li>Atuei também em processos licitatórios, desde a prospecção de editais até a venda final, demonstrando versatilidade operacional.</li>
+                <ul class="exp-bullets">
+                    <li>Gestão integral de estoque e parametrização fiscal de itens (classificação NCM, CEST e regras tributárias), além da escrituração de notas fiscais e geração de arquivos Sintegra.</li>
+                    <li>Desenvolvimento de planilhas estruturadas de fluxo de caixa e controle financeiro em Excel, bem como atuação ponta a ponta em processos licitatórios (prospecção de editais, habilitação e fechamento).</li>
                 </ul>
             </div>
         </section>
 
         <section>
+            <h2 class="section-title">Formação Acadêmica & Especializações</h2>
+            <div class="education-grid">
+                <div class="edu-item">
+                    <div class="exp-header">
+                        <span>Bacharelado em Engenharia Mecatrônica — UFSJ</span>
+                        <span class="exp-date">2024.1 – 2028.2</span>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress-label">
+                            <span>6º Período em curso (2026.2) | Monitoria e Iniciação Científica (MEF / Fourier)</span>
+                            <span>50% concluído</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill"></div></div>
+                    </div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="exp-header">
+                        <span>Pós-Técnico: Inspetor de Máquinas e Equipamentos / Inspetor de Soldagem (FIRJAN)</span>
+                        <span class="exp-date">Out/2026 – 2027</span>
+                    </div>
+                    <div class="edu-sub">INT Cursos — Qualificação técnica avançada em controle de qualidade e inspeção industrial</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="exp-header">
+                        <span>Formação em Análise de Dados e Business Intelligence</span>
+                        <span class="exp-date">Mai/2026 – Mai/2027</span>
+                    </div>
+                    <div class="edu-sub">Hashtag Treinamentos — ETL com SQL, Power BI, Python Analítico, Excel Avançado/VBA, Power Automate, Solver e AWS</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="exp-header">
+                        <span>Técnico em Mecânica Industrial — SENAI (CTTI MG)</span>
+                        <span class="exp-date">Nov/2024 – Abr/2026</span>
+                    </div>
+                    <div class="edu-sub">Formação técnica completa com foco em manutenção preditiva, processos mecânicos e sistemas industriais</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="exp-header">
+                        <span>Técnico em Mineração — ESTEC</span>
+                        <span class="exp-date">Ago/2022 – Jul/2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 10px;">
             <h2 class="section-title">Informações Adicionais</h2>
-            <p style="text-align: justify;">
-                Possuo total disponibilidade para horários administrativos (com início às 06h ou 07h), incluindo escalas aos finais de semana. Perfil com foco em comunicação assertiva, organização metódica e facilidade para trabalho em equipe. </p>
+            <p class="summary-text">
+                Disponibilidade para atuação em horário comercial/administrativo. Experiência prévia complementar como Jovem Aprendiz Técnico na <strong>Vale S.A.</strong> (1,5 ano), consolidando vivência em ambiente industrial de grande porte, normas de segurança e disciplina operacional.
+            </p>
         </section>
 
         <div class="portfolio-btn-container">
-            <a href="portfolio.html" class="portfolio-btn">Portfólio</a>
+            <a href="portfolio.html" class="portfolio-btn">Acessar Portfólio Técnico</a>
         </div>
     </main>
 </div>
