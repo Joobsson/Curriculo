@@ -216,6 +216,35 @@
             text-align: justify;
         }
 
+        /* Áreas de Interesse */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .interest-card {
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            border: 1px solid #dbeafe;
+            border-left: 4px solid var(--accent);
+        }
+
+        .interest-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 3px;
+        }
+
+        .interest-desc {
+            font-size: 0.79rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
         /* Experiência */
         .exp-card {
             margin-bottom: 24px;
@@ -381,35 +410,9 @@
             border-top: 1px solid var(--border-subtle);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
             gap: 12px;
             flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent);
-            color: #ffffff;
-            text-decoration: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.84rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding: 12px 24px;
-            border-radius: 9px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.32);
         }
 
         .btn-secondary {
@@ -421,7 +424,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.82rem;
             font-weight: 700;
-            padding: 11px 18px;
+            padding: 11px 20px;
             border-radius: 9px;
             border: 1px solid #cbd5e1;
             cursor: pointer;
@@ -440,11 +443,14 @@
             .main-body {
                 padding: 30px 22px;
             }
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
             .actions-bar {
                 flex-direction: column;
                 align-items: stretch;
             }
-            .btn-primary, .btn-secondary {
+            .btn-secondary {
                 justify-content: center;
             }
         }
@@ -466,7 +472,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .progress-fill, .exp-period {
+            .progress-fill, .exp-period, .interest-card {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -483,7 +489,7 @@
     <aside class="sidebar">
         <div class="profile-header">
             <div class="avatar-ring">
-                <img src="fotocurriculo.jpeg" alt="Foto de perfil de Jobsson Luiz do Nascimento Silva">
+                <img src="fotocurriculo.png" alt="Foto de perfil de Jobsson Luiz do Nascimento Silva">
             </div>
             <h1 class="profile-name">Jobsson Nascimento</h1>
             <p class="profile-role">Técnico em Mecânica • Graduando em Engenharia Mecatrônica</p>
@@ -555,6 +561,30 @@
             <p class="lead-text">
                 Técnico em Mecânica (CFT/CRT-MG) e graduando em Engenharia Mecatrônica pela UFSJ, com atuação consolidada em planejamento operacional, inspeção industrial, análise de dados e automação de rotinas. Experiência prática na estruturação de KPIs, relatórios técnicos e ferramentas de controle em Excel/VBA e aplicações web em HTML desenvolvidas com auxílio de Inteligência Artificial, unindo rigor técnico, organização e visão analítica para suporte à decisão.
             </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Áreas de Interesse</h2>
+            </div>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-title">Inspeção de Qualidade &amp; Integridade</div>
+                    <div class="interest-desc">Ensaios Não Destrutivos (END), inspeção de máquinas, equipamentos, soldagem e conformidade normativa (NR-13).</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Planejamento &amp; Controle (PCM)</div>
+                    <div class="interest-desc">Programação operacional, gestão de contratos industriais, indicadores (KPIs), custos e otimização de processos.</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Análise de Dados, BI &amp; Automação</div>
+                    <div class="interest-desc">Engenharia de dados (ETL/SQL), dashboards executivos, automação em Python/VBA e painéis web assistidos por IA.</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Modelagem Financeira &amp; de Controle</div>
+                    <div class="interest-desc">Análise quantitativa, pesquisa operacional, simulação de cenários e modelagem matemática de sistemas dinâmicos.</div>
+                </div>
+            </div>
         </section>
 
         <section class="section">
@@ -674,7 +704,6 @@
         </section>
 
         <div class="actions-bar">
-            <a href="portfolio.html" class="btn-primary">Acessar Portfólio</a>
             <button type="button" class="btn-secondary" onclick="window.print()">Salvar / Imprimir PDF</button>
         </div>
     </main>
