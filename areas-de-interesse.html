@@ -18,6 +18,9 @@
             --tech-accent: #0f766e;
             --tech-soft: #f0fdfa;
             --tech-border: #99f6e4;
+            --spec-accent: #4338ca;
+            --spec-soft: #eef2ff;
+            --spec-border: #c7d2fe;
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --text-muted: #64748b;
@@ -163,6 +166,12 @@
             border-color: var(--tech-border);
         }
 
+        .block-badge.spec {
+            background: var(--spec-soft);
+            color: var(--spec-accent);
+            border-color: var(--spec-border);
+        }
+
         /* Eixos Acadêmicos */
         .academic-list {
             display: flex;
@@ -241,6 +250,54 @@
             color: var(--text-primary);
         }
 
+        /* Especialização Profissional em Simulação Eletromagnética */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .spec-card {
+            background: #ffffff;
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--spec-accent);
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .spec-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 10px;
+        }
+
+        .spec-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .spec-list li {
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .spec-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--spec-accent);
+            font-weight: 700;
+        }
+
         /* Interesses Técnicos */
         .tech-grid {
             display: grid;
@@ -309,7 +366,7 @@
             .sub-list {
                 margin-left: 0;
             }
-            .tech-grid {
+            .spec-grid, .tech-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -363,8 +420,10 @@
                     </div>
                     <ul class="sub-list">
                         <li><strong>Controle de Sistemas Dinâmicos e Malhas:</strong> Exploração de modelagem matemática, análise de estabilidade, identificação de sistemas e sintonia de malhas de controle.</li>
+                        <li><strong>Controle Avançado, Robusto e Não Linear:</strong> Avaliação de estratégias de compensação de perturbações, controle preditivo/adaptativo e resposta transitória em plantas dinâmicas.</li>
+                        <li><strong>Observadores de Estado e Estimação:</strong> Estudo de reconstrução de variáveis internas, filtragem de sinais ruidosos e estimação de parâmetros em tempo real.</li>
                         <li><strong>Aquisição e Instrumentação Elétrica/Industrial:</strong> Estudo de condicionamento e aquisição de sinais, sensores, atuadores e interfaces elétricas voltadas ao controle de sistemas.</li>
-                        <li><strong>Sistemas SCADA e Gestão de Processos:</strong> Avaliação de arquitetura supervisória, telemetria, indicadores de desempenho, confiabilidade e padronização de processos.</li>
+                        <li><strong>Redes Industriais, Sistemas SCADA e Gestão de Processos:</strong> Avaliação de comunicação/telemetria, arquitetura supervisória, alarmística, indicadores de desempenho, confiabilidade e padronização de processos.</li>
                     </ul>
                 </article>
 
@@ -378,6 +437,34 @@
                         <li><strong>Forecast e Modelos de IA:</strong> Investigação de modelos preditivos, aprendizado de máquina e séries temporais aplicadas à projeção de cenários.</li>
                         <li><strong>Sistemas Dinâmicos Probabilísticos:</strong> Estudo de formulações estocásticas, propagação de incertezas e evolução probabilística de estados.</li>
                         <li><strong>Economia Aplicada:</strong> Análise quantitativa de variáveis econômicas, dinâmica de ativos, avaliação de risco e apoio decisório baseado em dados.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- ==================== ESPECIALIZAÇÃO PROFISSIONAL EM SIMULAÇÃO ELETROMAGNÉTICA ==================== -->
+        <section>
+            <div class="block-header">
+                <h2 class="block-title">Especialização Profissional em Simulação de Efeitos Eletromagnéticos (Em Avaliação)</h2>
+                <span class="block-badge spec">Simulação &amp; Fenômenos EM</span>
+            </div>
+
+            <div class="spec-grid">
+                <article class="spec-card">
+                    <h3 class="spec-card-title">Compatibilidade, Blindagem e Propagação EM</h3>
+                    <ul class="spec-list">
+                        <li>Avaliação de compatibilidade e interferência eletromagnética (EMC/EMI) em sistemas e ambientes industriais</li>
+                        <li>Estudo numérico de blindagem eletromagnética, aterramento e acoplamento de campos em cabos, estruturas e gabinetes</li>
+                        <li>Análise de propagação, reflexão, atenuação e dispersão de ondas eletromagnéticas em diferentes meios e geometrias</li>
+                    </ul>
+                </article>
+
+                <article class="spec-card">
+                    <h3 class="spec-card-title">Modelagem Numérica, Alta Frequência e Multifísica</h3>
+                    <ul class="spec-list">
+                        <li>Simulação computacional de componentes de alta frequência, micro-ondas, guias de onda e transdutores/sensores eletromagnéticos</li>
+                        <li>Estudo de regimes quasi-estáticos, transitórios, correntes induzidas e distribuição espacial de campos elétricos e magnéticos</li>
+                        <li>Exploração de acoplamento eletromagnético-térmico e eletromagnético-estrutural para avaliação de aquecimento e esforços associados</li>
                     </ul>
                 </article>
             </div>
@@ -403,7 +490,7 @@
                 <article class="tech-card">
                     <h3 class="tech-card-title">Qualificação em Inspeção</h3>
                     <ul class="tech-list">
-                        <li>Avaliação de qualificação em ME (Ultrassom medição de espessura)</li>
+                        <li>Avaliação de qualificação em ME (Macroscopia / Exame Macrográfico)</li>
                     </ul>
                 </article>
             </div>
