@@ -216,35 +216,6 @@
             text-align: justify;
         }
 
-        /* Áreas de Interesse */
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .interest-card {
-            padding: 12px 14px;
-            border-radius: 10px;
-            background: var(--accent-soft);
-            border: 1px solid #dbeafe;
-            border-left: 4px solid var(--accent);
-        }
-
-        .interest-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.86rem;
-            font-weight: 700;
-            color: var(--navy-dark);
-            margin-bottom: 3px;
-        }
-
-        .interest-desc {
-            font-size: 0.79rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
         /* Experiência */
         .exp-card {
             margin-bottom: 24px;
@@ -410,9 +381,33 @@
             border-top: 1px solid var(--border-subtle);
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
             gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 11px 20px;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.32);
         }
 
         .btn-secondary {
@@ -443,14 +438,11 @@
             .main-body {
                 padding: 30px 22px;
             }
-            .interests-grid {
-                grid-template-columns: 1fr;
-            }
             .actions-bar {
                 flex-direction: column;
                 align-items: stretch;
             }
-            .btn-secondary {
+            .btn-primary, .btn-secondary {
                 justify-content: center;
             }
         }
@@ -472,7 +464,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .progress-fill, .exp-period, .interest-card {
+            .progress-fill, .exp-period {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -519,11 +511,11 @@
                     <span class="tag">Excel Avançado</span>
                     <span class="tag">VBA &amp; Macros</span>
                     <span class="tag">Power BI</span>
-                    <span class="tag">SQL &amp; ETL</span>
-                    <span class="tag">Power Automate</span>
                     <span class="tag">Solver</span>
                     <span class="tag">Python</span>
-                    <span class="tag">C++</span>
+                    <span class="tag">Análise Analítica</span>
+                    <span class="tag">Forecast</span>
+                    <span class="tag">Tratamento e Interpretação de Dados</span>
                     <span class="tag">Controles HTML + IA</span>
                 </div>
             </div>
@@ -537,14 +529,16 @@
                     <span class="tag">Ensaios END</span>
                     <span class="tag">Norma NR-13</span>
                     <span class="tag">Orçamentação &amp; Custos</span>
+                    <span class="tag">Auditoria Interna de Processos</span>
+                    <span class="tag">Tratativa de Falhas</span>
                 </div>
             </div>
 
             <div class="skill-block">
                 <div class="skill-category">Gestão &amp; Sistemas</div>
                 <div class="skill-tags">
-                    <span class="tag">Sistemas ERP</span>
-                    <span class="tag">Fluxo de Caixa</span>
+                    <span class="tag">Controle de Processos Escritoriais</span>
+                    <span class="tag">Análise de Faturamento</span>
                     <span class="tag">Fiscal (NCM/CEST)</span>
                     <span class="tag">Windows &amp; Linux</span>
                 </div>
@@ -561,30 +555,6 @@
             <p class="lead-text">
                 Técnico em Mecânica (CFT/CRT-MG) e graduando em Engenharia Mecatrônica pela UFSJ, com atuação consolidada em planejamento operacional, inspeção industrial, análise de dados e automação de rotinas. Experiência prática na estruturação de KPIs, relatórios técnicos e ferramentas de controle em Excel/VBA e aplicações web em HTML desenvolvidas com auxílio de Inteligência Artificial, unindo rigor técnico, organização e visão analítica para suporte à decisão.
             </p>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Áreas de Interesse</h2>
-            </div>
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <div class="interest-title">Inspeção de Qualidade &amp; Integridade</div>
-                    <div class="interest-desc">Ensaios Não Destrutivos (END), inspeção de máquinas, equipamentos, soldagem e conformidade normativa (NR-13).</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-title">Planejamento &amp; Controle (PCM)</div>
-                    <div class="interest-desc">Programação operacional, gestão de contratos industriais, indicadores (KPIs), custos e otimização de processos.</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-title">Análise de Dados, BI &amp; Automação</div>
-                    <div class="interest-desc">Engenharia de dados (ETL/SQL), dashboards executivos, automação em Python/VBA e painéis web assistidos por IA.</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-title">Modelagem Financeira &amp; de Controle</div>
-                    <div class="interest-desc">Análise quantitativa, pesquisa operacional, simulação de cenários e modelagem matemática de sistemas dinâmicos.</div>
-                </div>
-            </div>
         </section>
 
         <section class="section">
@@ -704,6 +674,9 @@
         </section>
 
         <div class="actions-bar">
+            <a href="areas-de-interesse.html" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Áreas de Interesse Profissional e Acadêmico
+            </a>
             <button type="button" class="btn-secondary" onclick="window.print()">Salvar / Imprimir PDF</button>
         </div>
     </main>
