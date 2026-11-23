@@ -1,0 +1,269 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101c2d">
+<title>Planejamento ISQ | GOB — Semana 46</title>
+<style>
+:root{
+  --navy:#101c2d;--navy2:#182b43;--blue:#2864a5;--cyan:#36b6c8;
+  --ink:#172638;--muted:#64748b;--line:#e4eaf1;--bg:#f2f5f9;
+  --white:#fff;--green:#16866b;--amber:#b7791f;--purple:#7555ad;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,Segoe UI,Arial,sans-serif}
+.hero{background:linear-gradient(120deg,var(--navy),#1d4267);color:white;padding:38px max(24px,calc((100% - 1180px)/2)) 32px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff20;border-radius:50%;right:7%;top:-220px;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
+.kicker{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#a9d9e8;font-weight:700}
+h1{font-size:clamp(27px,4vw,42px);line-height:1.1;margin:10px 0 8px;letter-spacing:-.8px}
+.subtitle{color:#d2deeb;margin:0}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff35;background:#ffffff12;border-radius:30px;padding:7px 13px;font-size:12px;color:#edf5fc}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 56px}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-2px;margin-bottom:24px}
+.stat{background:white;border:1px solid var(--line);border-radius:15px;padding:17px 19px;box-shadow:0 5px 18px #15263b08}
+.stat strong{display:block;font-size:28px;line-height:1.1;color:var(--navy)}
+.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:20px 0 24px}
+.search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:11px 14px;background:white;font:inherit;outline:none}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2864a51a}
+.filter,.print{border:1px solid var(--line);border-radius:10px;background:white;padding:10px 14px;color:var(--ink);font-weight:600;cursor:pointer}
+.filter.active{background:var(--navy);color:white;border-color:var(--navy)}
+.print{background:var(--blue);color:white;border-color:var(--blue)}
+.day{margin:26px 0 30px}
+.day-head{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.day-date{background:var(--navy);color:white;border-radius:12px;padding:10px 13px;text-align:center;min-width:68px}
+.day-date b{display:block;font-size:21px;line-height:1.1}
+.day-date small{font-size:10px;letter-spacing:1px}
+.day-title h2{font-size:19px;margin:0;color:var(--navy)}
+.day-title p{font-size:12px;color:var(--muted);margin:2px 0 0}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.task{background:white;border:1px solid var(--line);border-radius:14px;padding:17px 18px;box-shadow:0 4px 15px #15263b07;position:relative;overflow:hidden}
+.task:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--blue)}
+.task[data-area="Laminação"]:before{background:var(--cyan)}
+.task[data-area="Oficina"]:before{background:var(--purple)}
+.task[data-area="Aciaria"]:before{background:var(--amber)}
+.task-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.method{font-size:10px;letter-spacing:1px;font-weight:800;color:var(--blue);text-transform:uppercase}
+.task h3{font-size:16px;line-height:1.3;margin:5px 0 12px;color:var(--navy)}
+.tag{font-size:10px;font-weight:700;background:#edf3fa;color:#385b80;border-radius:20px;padding:5px 9px;white-space:nowrap}
+.details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 14px}
+.detail{min-width:0}
+.detail label{display:block;color:#8995a5;font-size:10px;text-transform:uppercase;letter-spacing:.7px;margin-bottom:2px}
+.detail span{font-size:12px;color:#26384b;overflow-wrap:anywhere}
+.footerline{border-top:1px solid var(--line);margin-top:13px;padding-top:10px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px}
+.time{font-weight:800;color:var(--green)}
+.notice{background:#fff8e9;border:1px solid #f0dfb8;border-radius:12px;padding:13px 16px;color:#79591c;font-size:12px;margin-top:20px}
+.empty{display:none;text-align:center;padding:30px;background:white;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:20px 22px;text-align:center;color:var(--muted);font-size:11px}
+@media(max-width:720px){.summary{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}.hero{padding-top:30px}.details{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.summary{grid-template-columns:1fr}.details{grid-template-columns:1fr}.task-top{display:block}.tag{display:inline-block;margin-top:5px}}
+@media print{
+ body{background:white}.hero{padding:22px 28px!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .wrap{padding:15px 0}.toolbar{display:none}.summary{margin:12px 0}
+ .task,.stat{box-shadow:none;break-inside:avoid}.day{break-inside:avoid}
+ footer{padding:10px}.notice{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">Planejamento operacional • Inspeção</div>
+  <h1>Planejamento ISQ | GOB</h1>
+  <p class="subtitle">Programação das atividades de inspeção — Semana 46</p>
+  <div class="hero-meta">
+    <span class="pill">11 a 13 de novembro de 2026</span>
+    <span class="pill">Acesso: Área restrita</span>
+    <span class="pill">Jornada prevista: 08h às 17h</span>
+  </div>
+</header>
+<main class="wrap">
+  <section class="summary" aria-label="Resumo">
+    <div class="stat"><strong>14</strong><span>Registros na programação</span></div>
+    <div class="stat"><strong>3 dias</strong><span>Período planejado</span></div>
+    <div class="stat"><strong>3 áreas</strong><span>Laminação • Oficina • Aciaria</span></div>
+  </section>
+  <div class="toolbar">
+    <input id="search" class="search" type="search" placeholder="Buscar atividade, equipe, código ou área..." aria-label="Buscar na programação">
+    <button class="filter active" data-filter="Todas">Todas</button>
+    <button class="filter" data-filter="Laminação">Laminação</button>
+    <button class="filter" data-filter="Oficina">Oficina</button>
+    <button class="filter" data-filter="Aciaria">Aciaria</button>
+    <button class="print" onclick="window.print()">Imprimir / Salvar PDF</button>
+  </div>
+
+  <section class="day" data-day="11/11">
+    <div class="day-head"><div class="day-date"><b>11</b><small>NOV</small></div><div class="day-title"><h2>Quarta-feira</h2><p>11 de novembro de 2026</p></div></div>
+    <div class="cards">
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Videosc. redutor — régua direita · entrada BD2</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>82049025</span></div><div class="detail"><label>Equipe</label><span>Yuri, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4469</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · A70</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Videosc. redutor — régua direita · saída BD2</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>82049029</span></div><div class="detail"><label>Equipe</label><span>Yuri, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4469</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · A70</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Videosc. redutor — régua esquerda · entrada BD2</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>82049028</span></div><div class="detail"><label>Equipe</label><span>Yuri, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4469</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · A70</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Videosc. redutor — régua esquerda · saída BD2</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>82049026</span></div><div class="detail"><label>Equipe</label><span>Yuri, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4469</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · A70</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Tandem — base do motor da régua DD e DE</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>64403141</span></div><div class="detail"><label>Equipe</label><span>Yuri, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4469</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · A70</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">LP</div><h3>LP / PM — spindles BD2</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>81791131</span></div><div class="detail"><label>Equipe</label><span>Aueliton, Mirna</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4470</span></div><div class="detail"><label>Responsável / contato</label><span>Jardel · 31984839241</span></div>
+          <div class="detail"><label>Local</label><span>LPE</span></div><div class="detail"><label>Veículo</label><span>HB20 · H36</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="day" data-day="12/11">
+    <div class="day-head"><div class="day-date"><b>12</b><small>NOV</small></div><div class="day-title"><h2>Quinta-feira</h2><p>12 de novembro de 2026</p></div></div>
+    <div class="cards">
+      <article class="task" data-area="Oficina">
+        <div class="task-top"><div><div class="method">Phased Array</div><h3>Phased Array no Sledge</h3></div><span class="tag">Oficina</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>90743814</span></div><div class="detail"><label>Equipe</label><span>Olavo, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>Não informado</span></div><div class="detail"><label>Responsável / contato</label><span>Emerson Rocha · 98866-7815</span></div>
+          <div class="detail"><label>Local</label><span>Oficina</span></div><div class="detail"><label>Veículo</label><span>HB20 · H36</span></div>
+          <div class="detail"><label>Data indicada no campo final</label><span>13/11/2026 · 17h</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Oficina">
+        <div class="task-top"><div><div class="method">PM</div><h3>PM no Sledge</h3></div><span class="tag">Oficina</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>90743814</span></div><div class="detail"><label>Equipe</label><span>Aueliton, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>Não informado</span></div><div class="detail"><label>Responsável / contato</label><span>Emerson Rocha · 98866-7815</span></div>
+          <div class="detail"><label>Local</label><span>Oficina</span></div><div class="detail"><label>Veículo</label><span>HB20 · H36</span></div>
+          <div class="detail"><label>Data indicada no campo final</label><span>13/11/2026 · 17h</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Aciaria">
+        <div class="task-top"><div><div class="method">US</div><h3>Atividade de ultrassom (US)</h3></div><span class="tag">Aciaria</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>Não informado</span></div><div class="detail"><label>Equipe</label><span>Varlei, Mirna</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4476</span></div><div class="detail"><label>Responsável / contato</label><span>Rafael Rodrigues · 31985876974</span></div>
+          <div class="detail"><label>Local</label><span>Aciaria</span></div><div class="detail"><label>Veículo</label><span>Onix · 2C02</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Aciaria">
+        <div class="task-top"><div><div class="method">ME</div><h3>ME no cone do exaustor — Despoeiramento 06</h3></div><span class="tag">Aciaria</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>64392180</span></div><div class="detail"><label>Equipe</label><span>Celso, Junio</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4444</span></div><div class="detail"><label>Responsável / contato</label><span>Marcio · 31996109638</span></div>
+          <div class="detail"><label>Local</label><span>Aciaria</span></div><div class="detail"><label>Veículo</label><span>Onix · J00</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Aciaria">
+        <div class="task-top"><div><div class="method">LP</div><h3>LP — Despoeiramento 06</h3></div><span class="tag">Aciaria</span></div>
+        <div class="details">
+          <div class="detail"><label>Escopo</label><span>Cordões de solda do cone, elementos de fixação do cone e rotor</span></div><div class="detail"><label>OS / Código</label><span>64392180</span></div>
+          <div class="detail"><label>Equipe</label><span>Lucas Romulo, Artur</span></div><div class="detail"><label>Centro / Ref.</label><span>4444</span></div>
+          <div class="detail"><label>Responsável / contato</label><span>Marcio · 31996109638</span></div><div class="detail"><label>Veículo</label><span>Kwid</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="day" data-day="13/11">
+    <div class="day-head"><div class="day-date"><b>13</b><small>NOV</small></div><div class="day-title"><h2>Sexta-feira</h2><p>13 de novembro de 2026</p></div></div>
+    <div class="cards">
+      <article class="task" data-area="Oficina">
+        <div class="task-top"><div><div class="method">Phased Array</div><h3>Phased Array no Sledge</h3></div><span class="tag">Oficina</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>90743814</span></div><div class="detail"><label>Equipe</label><span>Olavo, Mary</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4477</span></div><div class="detail"><label>Responsável / contato</label><span>Emerson Rocha · 98866-7815</span></div>
+          <div class="detail"><label>Local</label><span>Oficina</span></div><div class="detail"><label>Veículo</label><span>HB20 · H36</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Oficina">
+        <div class="task-top"><div><div class="method">NR-13 / PM</div><h3>PM no Sledge</h3></div><span class="tag">Oficina</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>90743814</span></div><div class="detail"><label>Equipe</label><span>Celso, Fabio</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4477</span></div><div class="detail"><label>Responsável / contato</label><span>Emerson Rocha · 98866-7815</span></div>
+          <div class="detail"><label>Local</label><span>Oficina</span></div><div class="detail"><label>Veículo</label><span>Onix · J00</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+      <article class="task" data-area="Oficina">
+        <div class="task-top"><div><div class="method">PM</div><h3>PM na abóbada</h3></div><span class="tag">Área não indicada</span></div>
+        <div class="details">
+          <div class="detail"><label>Centro / Ref.</label><span>4454</span></div><div class="detail"><label>Equipe</label><span>Aueliton, Junio</span></div>
+          <div class="detail"><label>OS / Código</label><span>Não informado</span></div><div class="detail"><label>Horário / local / veículo</label><span>Não informado no documento</span></div>
+        </div><div class="footerline"><span>Registro com dados incompletos no arquivo-fonte</span><span class="time">—</span></div>
+      </article>
+      <article class="task" data-area="Laminação">
+        <div class="task-top"><div><div class="method">Videoscopia</div><h3>Videoscopia no redutor — máquina de carregamento</h3></div><span class="tag">Laminação</span></div>
+        <div class="details">
+          <div class="detail"><label>OS / Código</label><span>64376111</span></div><div class="detail"><label>Equipe</label><span>Lucas Romulo, Artur</span></div>
+          <div class="detail"><label>Centro / Ref.</label><span>4412</span></div><div class="detail"><label>Responsável / contato</label><span>Fabiano Lara · 31988886247</span></div>
+          <div class="detail"><label>Local</label><span>Laminação</span></div><div class="detail"><label>Veículo</label><span>Kwid</span></div>
+        </div><div class="footerline"><span>2 profissionais • Área restrita</span><span class="time">08h–17h</span></div>
+      </article>
+    </div>
+  </section>
+
+  <div id="empty" class="empty">Nenhuma atividade encontrada com esse filtro.</div>
+  <div class="notice"><strong>Atenção:</strong> as informações foram organizadas a partir do arquivo enviado. O registro “PM na abóbada” aparece sem horário, local, veículo e código/OS no documento. Alguns campos de referência também não estão preenchidos na fonte; por isso foram identificados como “não informado”.</div>
+</main>
+<footer>Planejamento ISQ | GOB • Semana 46 • Documento de apresentação baseado na programação fornecida</footer>
+<script>
+const search=document.getElementById('search');
+const buttons=[...document.querySelectorAll('.filter')];
+let area='Todas';
+function update(){
+ const q=search.value.toLocaleLowerCase('pt-BR');
+ let visible=0;
+ document.querySelectorAll('.task').forEach(card=>{
+   const okArea=area==='Todas'||card.dataset.area===area;
+   const okText=card.innerText.toLocaleLowerCase('pt-BR').includes(q);
+   card.style.display=okArea&&okText?'':'none';
+   if(okArea&&okText)visible++;
+ });
+ document.querySelectorAll('.day').forEach(day=>{
+   day.style.display=[...day.querySelectorAll('.task')].some(c=>c.style.display!=='none')?'':'none';
+ });
+ document.getElementById('empty').style.display=visible?'none':'block';
+}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+ area=btn.dataset.filter;buttons.forEach(b=>b.classList.toggle('active',b===btn));update();
+}));
+search.addEventListener('input',update);
+</script>
+</body>
+</html>'''
+
+path = Path("/mnt/data/planejamento_isq_gob_semana_46.html")
+path.write_text(html, encoding="utf-8")
+print(f"HTML criado: {path} ({path.stat().st_size:,} bytes)")
